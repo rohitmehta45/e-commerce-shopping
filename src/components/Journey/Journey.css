@@ -1,0 +1,95 @@
+.Journey-Container {
+  background-color: #fefdfc;
+  padding: 3rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.UpperTitle {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.UpperTitle h1 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.UpperTitle p {
+  color: #666;
+  font-size: 1rem;
+}
+
+.Timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  position: relative;
+  margin-left: 200px;
+}
+
+.TimelineItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+}
+
+.TimelineLeft {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+
+.TimelineYear {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #ff6f3c;
+  margin-bottom: 0.5rem;
+}
+
+.TimelineImg {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.TimelineLine {
+  position: absolute;
+  top: 60px;
+  left: 25px;
+  width: 2px;
+  height: calc(100% - 60px);
+  background-color: #ff6f3c;
+}
+
+.TimelineRight {
+  flex: 1;
+}
+
+.TimelineRight h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.TimelineRight p {
+  color: #555;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .TimelineItem {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .TimelineLine {
+    left: 25px;
+  }
+}

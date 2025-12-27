@@ -1,0 +1,133 @@
+.product-card {
+  background-color: #ffffff;
+  border-radius: 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  position: relative;
+}
+
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.product-card .badge {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background-color: #ffffff;
+  color: #ff6f3c;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.product-card .img-container {
+  width: 100%;
+  height: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.product-card .img-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.product-info .name-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.product-info h2 {
+  font-size: 1.3rem;
+  color: #333333;
+  margin-bottom: 8px;
+  min-height: 48px;
+}
+
+.product-info .rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+  background-color: #f1c40f;
+  color: #333333;
+  font-weight: bold;
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 0.9rem;
+}
+
+.product-info p.description {
+  font-size: 0.95rem;
+  color: #666666;
+  margin-bottom: 12px;
+  min-height: 40px;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.product-card p.price {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #000000;
+}
+
+.product-card p.price .price-label {
+  font-weight: 500;
+  margin-right: 5px;
+  color: #000000;
+}
+
+.product-card button.add-to-cart {
+  padding: 8px 16px;
+  background-color: #000000;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s;
+}
+
+.product-card button.add-to-cart:hover {
+  background-color: #333333;
+}
+
+.product-card p.discount {
+  font-size: 0.85rem;
+  color: #27ae60;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+@media screen and (max-width: 1024px) {
+  .LowerContainer {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .LowerContainer {
+    grid-template-columns: 1fr;
+  }
+}
