@@ -2,19 +2,74 @@
   position: sticky;
   top: 0;
   height: 70px;
-  background: #ffffff;
+  background-color: #fffaf5;
   padding: 0 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
   z-index: 9999;
+}
+
+.profile-container {
+  position: relative;
+}
+
+.profile-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #ff6f3c;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+}
+
+.profile-circle:hover {
+  background-color: #ff9a3c;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 45px;
+  right: 0;
+  background-color: #fffaf5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  width: 180px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-item {
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s ease;
+  color: #333;
+  text-decoration: none;
+}
+
+.profile-item:hover {
+  background-color: #ff6f3c;
+  color: #fff;
+}
+
+.logout-item {
+  border-top: 1px solid #ddd;
 }
 
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
   cursor: pointer;
 }
 
@@ -22,7 +77,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: inherit;
+  color: #333;
 }
 
 .logo-container img {
@@ -31,19 +86,21 @@
 }
 
 .logo {
-  font-weight: bold;
-  font-size: 1.5rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #000;
 }
 
 .nav-middle {
   flex: 1;
   display: flex;
   justify-content: center;
+  transition: max-height 0.3s ease-in-out;
 }
 
 .nav-links {
   display: flex;
-  gap: 30px;
+  gap: 32px;
   list-style: none;
   font-weight: 500;
   align-items: center;
@@ -51,33 +108,68 @@
 
 .nav-links li a {
   text-decoration: none;
-  color: #333333;
-  transition: color 0.3s;
+  color: #333;
+  font-size: 1rem;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
   color: #ff6f3c;
 }
 
+.nav-links li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #ff6f3c;
+  transition: width 0.3s ease;
+}
+
+.nav-links li a:hover::after,
+.nav-links li a.active::after {
+  width: 100%;
+}
+
 .nav-right {
   display: flex;
-  gap: 15px;
+  gap: 10px;
   align-items: center;
+  position: relative;
 }
 
-button {
-  background: none;
-  border: none;
-  font-size: 2rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: color 0.3s;
-}
-
-button:hover {
+.login-btn,
+.logout-btn,
+.signup-btn {
+  padding: 8px 20px;
+  border: 2px solid #ff6f3c;
+  background-color: transparent;
   color: #ff6f3c;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.4px;
+}
+
+.login-btn:hover,
+.logout-btn:hover,
+.signup-btn:hover {
+  background-color: #ff6f3c;
+  color: #fff;
+  box-shadow: 0 6px 15px rgba(255, 111, 60, 0.35);
+  transform: translateY(-1px);
+}
+
+.login-btn:active,
+.logout-btn:active,
+.signup-btn:active {
+  transform: scale(0.97);
 }
 
 .cart-container {
@@ -86,17 +178,26 @@ button:hover {
   align-items: center;
   justify-content: center;
   font-size: 2rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+
+.cart-container:hover {
+  color: #ff6f3c;
 }
 
 .cart-badge {
   position: absolute;
-  top: -12px;
-  right: -12px;
+  top: -8px;
+  right: -8px;
   background-color: #ff6f3c;
-  color: white;
-  font-size: 0.85rem;
+  color: #fff;
+  font-size: 0.75rem;
   font-weight: bold;
-  padding: 3px 7px;
+  padding: 3px 6px;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -105,6 +206,11 @@ button:hover {
 
 .hamburger-btn {
   display: none;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
 }
 
 @media (max-width: 768px) {
@@ -113,16 +219,16 @@ button:hover {
     top: 70px;
     left: 0;
     width: 100%;
-    background: #ffffff;
+    background-color: #fffaf5;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     max-height: 0;
-    transition: max-height 0.3s ease-in-out;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08);
   }
 
   .nav-middle.active {
-    max-height: 300px;
+    max-height: 400px;
   }
 
   .nav-links {
@@ -131,8 +237,24 @@ button:hover {
     padding: 20px 0;
   }
 
+  .login-btn,
+  .logout-btn,
+  .signup-btn {
+    padding: 7px 16px;
+    font-size: 0.9rem;
+  }
+
+  .cart-container {
+    font-size: 1.8rem;
+  }
+
   .hamburger-btn {
     display: flex;
-    font-size: 1.8rem;
+  }
+
+  .nav-right {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
   }
 }

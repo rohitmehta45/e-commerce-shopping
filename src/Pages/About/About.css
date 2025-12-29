@@ -24,7 +24,7 @@
 .leftSide h1 {
   font-size: 3rem;
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .leftSide h1:nth-of-type(2) {
@@ -38,15 +38,21 @@
   line-height: 1.6;
 }
 
-.leftSide button {
+.shop-collection-btn {
+  display: inline-block;
   background-color: #ff6f3c;
-  color: white;
+  color: #ffffff;
   font-weight: 600;
-  border: none;
-  padding: 12px 25px;
+  padding: 12px 28px;
   font-size: 1rem;
   border-radius: 8px;
-  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.shop-collection-btn:hover {
+  background-color: #ff9a3c;
+  transform: translateY(-2px);
 }
 
 .rightSide {
@@ -87,33 +93,38 @@
   justify-content: space-between;
   padding: 60px 40px;
   gap: 30px;
-  flex-wrap: nowrap;
 }
 
 .Bottom-Item {
   flex: 1;
   background: #ffffff;
   padding: 25px;
-  border-radius: 10px;
-  position: relative;
+  border-radius: 12px;
   text-align: left;
   border: 1px solid #ffe6ea;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.Bottom-Item:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
 }
 
 .Bottom-Item span {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background-color: #ffe6ea;
-  color: red;
-  font-size: 1.5rem;
-  padding: 5px 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
+  color: #ff6f3c;
+  font-size: 1.4rem;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 12px;
 }
 
 .Bottom-Item h1 {
   font-size: 1.5rem;
   font-weight: bold;
-  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -132,6 +143,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 40px;
 }
 
 .Founder-Left {
@@ -144,7 +156,7 @@
   width: 250px;
   height: 250px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 12px;
 }
 
 .Founder-Right {
@@ -153,12 +165,12 @@
   flex-direction: column;
   gap: 15px;
   background: #ffffff;
-  padding: 30px 25px;
-  border-radius: 10px;
+  padding: 30px;
+  border-radius: 12px;
 }
 
 .Founder-Right span {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: #ff6f3c;
   font-weight: bold;
   letter-spacing: 1px;
@@ -182,27 +194,17 @@
     gap: 30px;
   }
 
-  .rightSide img {
-    max-width: 100%;
-  }
-
   .Bottom-Containers {
     flex-direction: column;
-    gap: 20px;
-  }
-
-  .Bottom-Item h1 {
-    margin-top: 10px;
   }
 
   .Founder-Container {
     flex-direction: column;
-    gap: 30px;
+    text-align: center;
   }
 
   .Founder-Left img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
+    width: 200px;
+    height: 200px;
   }
 }

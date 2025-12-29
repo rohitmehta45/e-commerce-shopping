@@ -1,16 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
-import { CiSearch } from "react-icons/ci";
 import { IoCart } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
 import logoImg from "../../assets/logo.png";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import Cart from "../../Pages/Cart/Cart";
+import AuthModal from '../../components/AuthModal/AuthModal';
+import { auth, logout } from '../../firebase';
 
-const Navbar = ({ cartCount = 3 }) => {
+const Navbar = ({ cartItems = [] }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [cartOpen, setCartOpen] = useState(false);
+  const [authModalOpen, setAuthModalOpen] = useState(false);
+  const [authType, setAuthType] = useState("login");
+  const [user, setUser] = useState(null);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []);
+
+  const openLogin = () => {
+    setAuthType("login");
+    setAuthModalOpen(true);
+  };
+
+  const handleLogout = async () => {
+    await logout();
+    setDropdownOpen(false);
+  };
 
   return (
     <>
@@ -22,34 +42,80 @@ const Navbar = ({ cartCount = 3 }) => {
           </HashLink>
         </div>
 
-        <div className={`nav-middle ${mobileMenuOpen ? "active" : ""}`}>
-          <ul className="nav-links">
-            <li><HashLink smooth to="/#home">Home</HashLink></li>
-            <li><Link to="/products">Products</Link></li>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/contact">Contact</Link></li>
-          </ul>
-        </div>
+        {user && (
+          <div className={`nav-middle ${mobileMenuOpen ? "active" : ""}`}>
+            <ul className="nav-links">
+              <li>
+                <HashLink smooth to="/#home" className="nav-item">Home</HashLink>
+              </li>
+              <li>
+                <NavLink to="/products" className="nav-item">Products</NavLink>
+              </li>
+              <li>
+                <NavLink to="/about" className="nav-item">About Us</NavLink>
+              </li>
+              <li>
+                <NavLink to="/contact" className="nav-item">Contact</NavLink>
+              </li>
+            </ul>
+          </div>
+        )}
 
         <div className="nav-right">
-          <button className="icon-btn"><CiSearch /></button>
+          {!user && (
+            <button className="login-btn" onClick={openLogin}>Login</button>
+          )}
 
-          <button
-            className="cart-container"
-            onClick={() => setCartOpen(true)}
-            type="button"
-          >
+          {user && (
+            <div className="profile-container">
+              <div
+                className="profile-circle"
+                onClick={() => setDropdownOpen(!dropdownOpen)}
+              >
+                {user.email[0].toUpperCase()}
+              </div>
+              {dropdownOpen && (
+                <div className="profile-dropdown">
+                  <NavLink to="/profile" className="profile-item" onClick={() => setDropdownOpen(false)}>
+                    Profile / Settings
+                  </NavLink>
+                  <NavLink to="/dashboard" className="profile-item" onClick={() => setDropdownOpen(false)}>
+                    Orders / Dashboard
+                  </NavLink>
+                  <NavLink to="/help" className="profile-item" onClick={() => setDropdownOpen(false)}>
+                    Help / Support
+                  </NavLink>
+                  <div className="profile-item logout-item" onClick={handleLogout}>
+                    Sign Out
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          <button className="cart-container">
             <IoCart />
-            {cartCount > 0 && <span className="cart-badge">{cartCount}</span>}
+            {cartItems.length > 0 && (
+              <span className="cart-badge">{cartItems.length}</span>
+            )}
           </button>
 
-          <button className="hamburger-btn" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+          <button
+            className="hamburger-btn"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
             <GiHamburgerMenu />
           </button>
         </div>
       </nav>
 
-      {cartOpen && <Cart onClose={() => setCartOpen(false)} />}
+      {authModalOpen && (
+        <AuthModal
+          type={authType}
+          setType={setAuthType}
+          closeModal={() => setAuthModalOpen(false)}
+        />
+      )}
     </>
   );
 };

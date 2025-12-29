@@ -79,7 +79,27 @@ const productsData = [
   { id: 27, img: img27, name: "GoPro Hero 12", description: "Action camera for adventure sports", rating: 5, price: 400, discount: 15, category: "Electronics" },
   { id: 28, img: img28, name: "AmazonBasics Floor Lamp", description: "Modern standing floor lamp", rating: 4, price: 50, discount: 0, category: "Home" },
   { id: 29, img: img29, name: "Converse All Star Sneakers", description: "Classic canvas high-top sneakers", rating: 4, price: 70, discount: 0, category: "Fashion" },
-  { id: 30, img: img30, name: "Urban Outfitters Vase", description: "Decorative ceramic vase", rating: 4, price: 45, discount: 0, category: "Home" }
+  { id: 30, img: img30, name: "Urban Outfitters Vase", description: "Decorative ceramic vase", rating: 4, price: 45, discount: 0, category: "Home" },
+  { id: 31, img: img31, name: "Sony PlayStation 6", description: "Next-gen gaming console with VR support", rating: 5, price: 599, discount: 10, category: "Electronics" },
+  { id: 32, img: img32, name: "Apple MacBook Pro 16", description: "High-performance laptop with M3 chip", rating: 5, price: 2399, discount: 0, category: "Electronics" },
+  { id: 33, img: img33, name: "Bose QuietComfort Earbuds", description: "Noise-cancelling wireless earbuds", rating: 4, price: 250, discount: 0, category: "Electronics" },
+  { id: 34, img: img34, name: "KitchenAid Stand Mixer", description: "Professional-grade mixer for baking", rating: 5, price: 399, discount: 15, category: "Home" },
+  { id: 35, img: img35, name: "Patagonia Waterproof Jacket", description: "Durable outdoor jacket", rating: 5, price: 180, discount: 10, category: "Fashion" },
+  { id: 36, img: img36, name: "Herman Miller Aeron Chair", description: "Ergonomic office chair", rating: 5, price: 1299, discount: 20, category: "Home" },
+  { id: 37, img: img37, name: "Nintendo Switch OLED", description: "Handheld gaming console with OLED screen", rating: 5, price: 349, discount: 0, category: "Electronics" },
+  { id: 38, img: img38, name: "Lego Technic Car", description: "Advanced building kit for car models", rating: 4, price: 120, discount: 5, category: "Toys" },
+  { id: 39, img: img39, name: "Samsung 4K TV", description: "Ultra HD smart television", rating: 5, price: 799, discount: 15, category: "Electronics" },
+  { id: 40, img: img40, name: "Adidas Sports Jacket", description: "Lightweight athletic jacket", rating: 4, price: 110, discount: 0, category: "Fashion" },
+  { id: 41, img: img41, name: "Fitbit Versa 4", description: "Smartwatch with fitness tracking", rating: 4, price: 199, discount: 0, category: "Electronics" },
+  { id: 42, img: img42, name: "Canon EOS R7 Camera", description: "Mirrorless camera for photography enthusiasts", rating: 5, price: 1499, discount: 20, category: "Electronics" },
+  { id: 43, img: img43, name: "Fila Running Shoes", description: "Comfortable running shoes", rating: 4, price: 85, discount: 0, category: "Fashion" },
+  { id: 44, img: img44, name: "Vans Old Skool Sneakers", description: "Classic casual sneakers", rating: 4, price: 60, discount: 0, category: "Fashion" },
+  { id: 45, img: img45, name: "Logitech MX Master 3", description: "Advanced wireless mouse", rating: 5, price: 99, discount: 0, category: "Electronics" },
+  { id: 46, img: img46, name: "Dyson V15 Vacuum Cleaner", description: "High-power cordless vacuum cleaner", rating: 5, price: 699, discount: 15, category: "Home" },
+  { id: 47, img: img47, name: "Samsung Galaxy Watch 6", description: "Smartwatch with health tracking", rating: 4, price: 299, discount: 0, category: "Electronics" },
+  { id: 48, img: img48, name: "Apple AirPods Pro 2", description: "Noise-cancelling wireless earbuds", rating: 5, price: 249, discount: 0, category: "Electronics" },
+  { id: 49, img: img49, name: "Levi's 501 Jeans", description: "Classic straight fit denim jeans", rating: 4, price: 80, discount: 0, category: "Fashion" },
+  { id: 50, img: img50, name: "Razer Blade 18 Laptop", description: "High-performance gaming laptop", rating: 5, price: 2499, discount: 20, category: "Electronics" }
 ];
 
 export default productsData;

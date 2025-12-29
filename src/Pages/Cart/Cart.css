@@ -9,11 +9,13 @@
 
 .cart-drawer {
   width: 400px;
+  max-width: 100%;
   background: #fff;
   height: 100%;
   padding: 20px;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .cart-header {
@@ -53,6 +55,13 @@
   flex: 1;
 }
 
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 5px;
+}
+
 .item-right {
   text-align: right;
 }
@@ -60,6 +69,7 @@
 .delete-icon {
   cursor: pointer;
   color: #ff6f3c;
+  margin-top: 5px;
 }
 
 .cart-summary {
@@ -88,6 +98,8 @@
 .promo input {
   flex: 1;
   padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
 }
 
 .promo button {
@@ -95,6 +107,8 @@
   color: #fff;
   border: none;
   padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .checkout-btn {
@@ -105,6 +119,7 @@
   border: none;
   font-weight: 600;
   cursor: pointer;
+  border-radius: 8px;
 }
 
 .secure {
@@ -114,4 +129,26 @@
   display: flex;
   gap: 5px;
   align-items: center;
+}
+
+@media screen and (max-width: 768px) {
+  .cart-drawer {
+    width: 100%;
+  }
+
+  .cart-summary {
+    font-size: 0.9rem;
+  }
+
+  .promo input {
+    font-size: 0.9rem;
+  }
+
+  .promo button {
+    font-size: 0.9rem;
+  }
+
+  .checkout-btn {
+    font-size: 1rem;
+  }
 }

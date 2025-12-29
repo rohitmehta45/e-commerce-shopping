@@ -88,13 +88,12 @@
 .product-card p.price {
   font-size: 1.1rem;
   font-weight: 700;
-  color: #000000;
+  color: #ff6f3c;
 }
 
 .product-card p.price .price-label {
   font-weight: 500;
   margin-right: 5px;
-  color: #000000;
 }
 
 .product-card button.add-to-cart {
